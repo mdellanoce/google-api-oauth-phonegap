@@ -1,0 +1,8 @@
+{
+  "name": "google-oauth-phonegap",
+  "version": "0.0.1",
+  "license": "MIT",
+  "dependencies": {
+    "cordova": "~2.8.19"
+  }
+}
