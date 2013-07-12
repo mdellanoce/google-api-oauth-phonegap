@@ -38,6 +38,10 @@ body {
     text-align:center;
 }
 
+.app > div {
+    display: none;
+}
+
 #login a {
     border-radius: 5px;
     color: white;
