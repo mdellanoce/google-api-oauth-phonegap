@@ -1,7 +1,7 @@
 {
   "name": "google-api-oauth-phonegap",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "dependencies": {
-    "cordova": "~2.8.19"
+    "cordova": "~3.0.0"
   }
 }

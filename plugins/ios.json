@@ -1,0 +1,1 @@
+{"prepare_queue":{"installed":[],"uninstalled":[]},"config_munge":{"config.xml":{"/*":{"<feature name=\"InAppBrowser\"><param name=\"ios-package\" value=\"CDVInAppBrowser\" /></feature>":1}}},"installed_plugins":{"org.apache.cordova.core.inappbrowser":{"PACKAGE_NAME":"com.phonegaptips.googleoauth"}},"dependent_plugins":{}}
