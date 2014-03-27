@@ -32,7 +32,8 @@ var googleapi = {
         //loadstart and loadstop events. So if we bind the loadstart event, we can
         //find the authorization code and close the InAppBrowser after the user
         //has granted us access to their data.
-        $(authWindow).on('loadstart', function(e) {
+        authWindow.addEventListener('loadstart', googleCallback);
+        function googleCallback(e){
             var url = e.url;
             var code = /\?code=(.+)$/.exec(url);
             var error = /\?error=(.+)$/.exec(url);
@@ -62,7 +63,7 @@ var googleapi = {
                     error: error[1]
                 });
             }
-        });
+        }
 
         return deferred.promise();
     },
@@ -111,8 +112,8 @@ var app = {
         //cached or if we can get a new
         //one using a refresh token.
         googleapi.getToken({
-            client_id: this.client_id,
-            client_secret: this.client_secret
+            client_id: app.client_id,
+            client_secret: app.client_secret
         }).done(function() {
             //Show the greet view if we get a valid token
             app.showGreetView();
@@ -132,8 +133,8 @@ var app = {
         //Get the token, either from the cache
         //or by using the refresh token.
         googleapi.getToken({
-            client_id: this.client_id,
-            client_secret: this.client_secret
+            client_id: app.client_id,
+            client_secret: app.client_secret
         }).then(function(data) {
             //Pass the token to the API call and return a new promise object
             return googleapi.userInfo({ access_token: data.access_token });
@@ -149,10 +150,10 @@ var app = {
     onLoginButtonClick: function() {
         //Show the consent page
         googleapi.authorize({
-            client_id: this.client_id,
-            client_secret: this.client_secret,
-            redirect_uri: this.redirect_uri,
-            scope: this.scope
+            client_id: app.client_id,
+            client_secret: app.client_secret,
+            redirect_uri: app.redirect_uri,
+            scope: app.scope
         }).done(function() {
             //Show the greet view if access is granted
             app.showGreetView();
