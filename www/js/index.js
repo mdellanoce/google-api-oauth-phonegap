@@ -33,7 +33,7 @@ var googleapi = {
         //find the authorization code and close the InAppBrowser after the user
         //has granted us access to their data.
         $(authWindow).on('loadstart', function(e) {
-            var url = e.originalEvent.url;
+            var url = e.url;
             var code = /\?code=(.+)$/.exec(url);
             var error = /\?error=(.+)$/.exec(url);
 
