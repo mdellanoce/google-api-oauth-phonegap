@@ -34,7 +34,7 @@ var googleapi = {
         //has granted us access to their data.
         authWindow.addEventListener('loadstart', googleCallback);
         function googleCallback(e){
-            var url = (typeof e.url != 'undefined' ? e.url : e.originalEvent.url);
+            var url = (typeof e.url !== 'undefined' ? e.url : e.originalEvent.url);
             var code = /\?code=(.+)$/.exec(url);
             var error = /\?error=(.+)$/.exec(url);
 
